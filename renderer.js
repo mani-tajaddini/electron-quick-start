@@ -1,3 +1,16 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// All of the Node.js APIs are available in this process.
+let pointsArray = Point.createPoints(5000)
+
+//let heatMap = new HeatMap(document.getElementsByClassName('rg')[0])
+
+setInterval(() => {
+  let Xarr = []
+  let Yarr = []
+  pointsArray.forEach((p) => {
+    p.update()
+    // Xarr.push(p.values[0])
+    // Yarr.push(p.values[1])
+  })
+
+  //heatMap.update(Xarr, Yarr)
+
+},10)
