@@ -1,0 +1,29 @@
+{
+	"name": "electron-quick-start",
+	"version": "1.0.0",
+	"description": "A minimal Electron application",
+	"keywords": [
+		"Electron",
+		"quick",
+		"start",
+		"tutorial",
+		"demo"
+	],
+	"license": "CC0-1.0",
+	"author": "GitHub",
+	"main": "main.js",
+	"repository": {},
+	"scripts": {
+		"start": "node_modules/electron/dist/electron --enable-transparent-visuals --disable-gpu .",
+		"build": "electron-packager ."
+	},
+	"dependencies": {
+		"electron-window-state": "^4.1.1"
+	},
+	"devDependencies": {
+		"devtron": "^1.4.0",
+		"electron": "~1.7.8",
+		"electron-packager": "^10.1.1",
+		"electron-reload": "^1.2.2"
+	}
+}
