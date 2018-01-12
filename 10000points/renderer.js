@@ -1,6 +1,7 @@
 let pointsArray = Point.createPoints(5000)
 
-//let heatMap = new HeatMap(document.getElementsByClassName('rg')[0])
+// let h
+eatMap = new HeatMap(document.getElementsByClassName('rg')[0])
 
 setInterval(() => {
   let Xarr = []

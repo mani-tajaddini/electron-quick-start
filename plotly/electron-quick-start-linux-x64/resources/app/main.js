@@ -1,6 +1,4 @@
 const electron = require('electron')
-// require('electron-reload')(__dirname)
-const windowStateKeeper = require('electron-window-state')
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -13,28 +11,33 @@ const url = require('url')
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
+function createWindow () {
+  // Create the browser window.
+  mainWindow = new BrowserWindow({width: 800, height: 600})
+
+  // and load the index.html of the app.
+  mainWindow.loadURL(url.format({
+    pathname: path.join(__dirname, 'index.html'),
+    protocol: 'file:',
+    slashes: true
+  }))
+
+  // Open the DevTools.
+  // mainWindow.webContents.openDevTools()
+
+  // Emitted when the window is closed.
+  mainWindow.on('closed', function () {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    mainWindow = null
+  })
+}
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', function() {
-  setTimeout(() => {
-    // Create the browser window.
-    mainWindow = new BrowserWindow({
-      width: 1200,
-      height: 700,
-      frame:false,
-      transparent:true,
-      fullscreen:true
-    })
-
-    // and load the index.html of the app.
-    mainWindow.loadURL(url.format({
-      pathname: path.join(__dirname, 'index.html'),
-      protocol: 'file:',
-      slashes: true
-    }))
-  },10)
-})
+app.on('ready', createWindow)
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
